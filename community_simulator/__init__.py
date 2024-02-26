@@ -173,7 +173,8 @@ class Community:
         """
         
         #CONSTRUCT FULL SYSTEM STATE
-        y_in = self.N.append(self.R).values
+        #y_in = self.N.append(self.R).values
+        y_in = pd.concat([self.N, self.R]).reset_index(drop=True)
         
         #PACKAGE SYSTEM STATE AND PARAMETERS IN LIST OF DICTIONARIES
         if not isinstance(self.params,list):
