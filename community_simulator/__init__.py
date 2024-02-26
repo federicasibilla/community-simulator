@@ -181,7 +181,7 @@ class Community:
             params = [self.params]*self.n_wells
         else:
             params = self.params
-        well_info = [{'y0':y_in[:,k],'params':params[k]} for k in range(self.n_wells)]
+        well_info = [{'y0':y_in.iloc[:,k],'params':params[k]} for k in range(self.n_wells)]
         
         #PREPARE OPTIMIZER FOR PARALLEL PROCESSING
         OptimizeTheseWells = partial(OptimizeWell,supply=supply,tol=tol,alpha=alpha,
