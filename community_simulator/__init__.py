@@ -421,12 +421,12 @@ class Community:
             params_well = self.params
         
         #INTEGRATE WELL
-        #t, out = IntegrateWell(self,{'y0':N_well.append(R_well).values,'params':params_well},T=T,ns=ns,T0=T0,
-        #                      return_all=True,log_time=log_time,compress_resources=compress_resources,
-        #                      compress_species=compress_species)
-        t, out = IntegrateWell(self,{'y0':pd.concat([N_well.values, R_well.values]).reset_index(drop=True),'params':params_well},T=T,ns=ns,T0=T0,
+        t, out = IntegrateWell(self,{'y0':N_well.append(R_well).values,'params':params_well},T=T,ns=ns,T0=T0,
                               return_all=True,log_time=log_time,compress_resources=compress_resources,
                               compress_species=compress_species)
+        #t, out = IntegrateWell(self,{'y0':pd.concat([N_well.values, R_well.values]).reset_index(drop=True),'params':params_well},T=T,ns=ns,T0=T0,
+        #                      return_all=True,log_time=log_time,compress_resources=compress_resources,
+        #                      compress_species=compress_species)
         
         Ntraj = out[:,:self.S]
         Rtraj = out[:,self.S:]
